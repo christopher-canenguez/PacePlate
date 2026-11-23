@@ -2,6 +2,8 @@ package com.paceplate.backend.dto;
 
 import java.util.List;
 
+import com.paceplate.backend.model.Goal;
+
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -21,7 +23,7 @@ public record RecipeGenerationRequest(
     Double minProtein,
 
     @NotNull
-    String goal,
+    Goal goal,
 
     @NotNull
     @Min(1)

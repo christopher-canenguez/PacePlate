@@ -1,11 +1,15 @@
 package com.paceplate.backend.controller;
 
-import com.paceplate.backend.dto.RecipeGenerationRequest;
-import com.paceplate.backend.service.RecipeService;
-import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Map;
+import com.paceplate.backend.dto.RecipeGenerationRequest;
+import com.paceplate.backend.dto.RecipeGenerationResponse;
+import com.paceplate.backend.service.RecipeService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/recipes")
@@ -18,7 +22,7 @@ public class RecipeController {
     }
 
     @PostMapping("/generate")
-    public Map<String, Object> generateRecipe(@Valid @RequestBody RecipeGenerationRequest request) {
+    public RecipeGenerationResponse generateRecipe(@Valid @RequestBody RecipeGenerationRequest request) {
         return recipeService.generateRecipe(request);
     }
 }
